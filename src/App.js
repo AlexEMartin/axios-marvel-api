@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { mobile, tablet } from './responsive'
+import { url } from './utils/url'
 
 const Container = styled.div`
   width: 100%;
@@ -63,7 +64,7 @@ function App() {
   const [personajes, setPersonajes] = useState([])
 
   useEffect(() => {
-    axios.get('https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=28ab00faa3a5fa24befb2c10450fe8e4&hash=0811aa3f86fb3d14f2db6a3f5aa9bbbf')
+    axios.get(url)
     .then(response => {
         setPersonajes(response.data.data.results)
 
